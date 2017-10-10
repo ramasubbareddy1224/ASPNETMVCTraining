@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "FullPage";
+}
+
+<h2>FullPage</h2>
+
+<h4>Partail View 1</h4>
+
+@* using partail in same controller*@
+<div>
+    @Html.Partial("PartailView1")
+   
+</div>
+
+@*using render partail*@
+<div>
+    @{
+        Html.RenderPartial("PartailView1");
+     }
+</div>
+
+@* using partail in Shared folder*@
+<div>
+    @Html.Partial("PartailView2")
+
+</div>
+
+@* using partail with Html.Action*@
+<div>
+    <p>Using Html.Action</p>
+    @Html.Action("PartailView3","Test")
+
+</div>
+
+@* using partail with Html.RenderAction*@
+<div>
+    <p>Using Html.RenderAction</p>
+    @{
+        Html.RenderAction("PartailView3", "Test");
+    }
+
+</div>

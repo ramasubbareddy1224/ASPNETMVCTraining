@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Red",
+        Value = "1"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Yellow",
+        Value = "2"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Green",
+        Value = "3"
+    });
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            This is left panel
+        </div>
+        <div class="col-md-9">
+
+
+            <div>
+                <div class="jumbotron">This is Big Block</div>
+                <h2>This is First View Result</h2>
+                <h4>Test message</h4>
+                <button>Test Button</button>
+                <button class="btn btn-warning">Test Button</button>
+                <table class="table table-striped tabl-b">
+                    <thead>
+                        <tr>
+                            <td>Header 1</td>
+                            <td>Header 2</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 1</td>
+                            <td>Row 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>
+                    ViewData:  @ViewData["Name"] <br />
+                    ViewBag: @ViewBag.VBName
+                </h3>
+
+                <h3>
+                    @ViewData["Location"]
+                </h3>
+
+                <h3>
+                    ViewData Date: @(Convert.ToDateTime(ViewData["Today"]).DayOfWeek) <br />
+                    ViewBag Date: @ViewBag.VBToday.DayOfWeek
+                </h3>
+                @Html.TextBox("txtname", @ViewData["Location"])
+                @Html.ActionLink("Click", "About")
+                <fieldset>
+                    <legend>Are you Married</legend>
+                    @Html.RadioButton("married","yes") Yes
+                    @Html.RadioButton("married", "no") no
+
+                </fieldset>
+                <fieldset>
+                    <legend>Do you Agree</legend>
+                    @Html.CheckBox("agree")
+                </fieldset>
+                <fieldset>
+                    <legend>Select Color</legend>
+                    @Html.DropDownList("color",listItems,"select color")
+                </fieldset>
+
+            </div>
+        </div>
+    </div>
+</div>

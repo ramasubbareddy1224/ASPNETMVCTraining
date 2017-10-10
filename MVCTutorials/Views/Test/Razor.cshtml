@@ -1,0 +1,156 @@
+﻿
+@using MVCTutorials.Models;
+@{
+    ViewBag.Title = "Razor";
+}
+
+@{
+    var name = "pragim tech";
+    int count = 10;
+    string message = "total student count:" + count;
+}
+
+<h2>Razor Syntax</h2>
+
+<p>@name</p>
+<p>My institution name:@name and @message</p>
+
+<!--   decission block -->
+
+@{
+    var result = "";
+    bool isAllowed = true;
+    if (isAllowed)
+    {
+        result = "This page was posted using the Submit button.";
+    }
+    else
+    {
+        result = "This was the first request for this page.";
+    }
+}
+<p>@result</p>
+
+<!--Markup with Decission-->
+@if (isAllowed)
+{
+    <p>This page was posted using the Submit button.</p>
+}
+else
+{
+    <p>This was the first request for this page.</p>
+}
+
+<!--Markup with Inline Expression-->
+
+<p>Total students:@(count * 2)</p>
+
+The time is: <br /> @DateTime.Now
+
+
+@if (isAllowed)
+{
+    <p>The time is: <br /> @DateTime.Now</p>
+    @: The time is: <br /> @DateTime.Now
+
+
+
+
+
+
+
+
+}
+
+<!--looping -->
+
+
+@{
+    for (int i = 0; i <= 10; i++)
+    {
+        <p>Loop Count# @i</p>
+    }
+
+    string[] names = { "student1", "student2", "student3" };
+
+    foreach (var item in names)
+    {
+        @item <br />
+    }
+    // object style = new { style = "background-color:yellow" };
+
+}
+
+
+@* UL Block using Razor
+    using for loop
+    declare i variable
+*@
+
+<ul>
+    @for (int i = 1; i <= 10; i++)
+    {
+        <li>@i</li>
+    }
+</ul>
+
+@*HTML Helpers*@
+<p>Enter name:<input type="text" name="txtname" value="rama" class="txtStyle" data-name="my name is rama" /></p>
+
+<p>Enter name:@Html.TextBox("txtname", "rama", new { @class = "txtStyle", @data_name = "my namme is rama" })</p>
+
+<p>Enter Description: <textarea id="txtdescription" name="txtdescription" rows="4" cols="25">mvc </textarea></p>
+
+<p>Enter Description:@Html.TextArea("txtdescription", new { rows = "4", cols = "25" })</p>
+
+<p>Gender :<input type="radio" name="gender" />Male  <input type="radio" name="gender" /> Female</p>
+
+<p>Gender:@Html.RadioButton("rgender", "Male")Male  @Html.RadioButton("rgender", "Female") Female </p>
+
+<p>
+    Select Color:
+    <select>
+        <option value="-1">--select color--</option>
+        <option value="Red">Red</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Green">Green</option>
+    </select>
+</p>
+@{
+    List<SelectListItem> ddllist = new List<SelectListItem>();
+    ddllist.Add(new SelectListItem { Text = "Red", Value = "Red" });
+    ddllist.Add(new SelectListItem { Text = "Yellow", Value = "Yellow" });
+    ddllist.Add(new SelectListItem { Text = "Green", Value = "Green", Selected = true });
+}
+<p>
+    Select Color:
+    @Html.DropDownList("ddlcolor", ddllist, "--select color--")
+</p>
+
+<p>Navigate to About Page : <a href="/test/about">Click Here</a> </p>
+
+<p>Navigate to About Page using Razor : @Html.ActionLink("Click Here", "about", "test") </p>
+
+<p>print url : @Url.Action("about", "home")</p>
+
+<label><strong>my name is rama</strong></label>
+
+<p>Custom HTML Helper : @Html.LabelWithBold("my name is rama")</p>
+
+
+@Html.DivWithBackGround("red")
+@Html.DivWithBackGround("yellow")
+@Html.DivWithBackGround("green")
+
+@CustomHelper.LabelWithBold("static helper")
+
+@helper LabelWithBoldInline(string content)
+{
+    <label><strong>@content</strong></label>
+}
+
+<p>@LabelWithBoldInline("Inline Helper")</p>
+
+
+
+
