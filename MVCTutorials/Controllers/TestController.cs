@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MVCTutorials.Controllers
 {
+    
     public class TestController : Controller
     {
         [HttpGet]
@@ -79,6 +80,18 @@ namespace MVCTutorials.Controllers
         public ActionResult PartailView3()
         {
             return PartialView();
+        }
+        [AllowAnonymous]
+        [OutputCache(Duration =10)]
+        public ActionResult GetDate()
+        {
+            return Content(DateTime.Now.ToString());
+        }
+        [HandleError]
+        public  ActionResult Exception()
+        {
+            throw new Exception("This is sample exeption");
+            return View();
         }
     }
 

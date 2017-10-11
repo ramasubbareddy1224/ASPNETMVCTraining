@@ -118,8 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\CustomBundleConfig.cs" />
+    <Compile Include="App_Start\CustomFilterConfig.cs" />
     <Compile Include="App_Start\CustomRouteConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
