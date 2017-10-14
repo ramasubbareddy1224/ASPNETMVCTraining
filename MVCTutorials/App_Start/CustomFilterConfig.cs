@@ -10,7 +10,8 @@ namespace MVCTutorials
     {
         public static void LoadFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new AuthorizeAttribute());
+           // filters.Add(new AuthorizeAttribute());
+            filters.Add(new HandleErrorAttribute());
         }
     }
 }

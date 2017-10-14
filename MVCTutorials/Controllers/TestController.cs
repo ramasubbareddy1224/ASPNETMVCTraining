@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MVCTutorials.Models;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -82,9 +84,11 @@ namespace MVCTutorials.Controllers
             return PartialView();
         }
         [AllowAnonymous]
-        [OutputCache(Duration =10)]
+       // [OutputCache(Duration =10)]
+        [LogFilter]
         public ActionResult GetDate()
         {
+            Debug.WriteLine(DateTime.Now.ToString());
             return Content(DateTime.Now.ToString());
         }
         [HandleError]

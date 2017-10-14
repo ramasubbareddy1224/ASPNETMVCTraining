@@ -16,7 +16,7 @@ namespace MVCTutorials.Models
         }
         public static HtmlString DivWithBackGround(this HtmlHelper helper,string color)
         {
-            string htmlString = string.Format("<div width='200px' height='400px' style='background-color:{0}'>Hi</div>",color);
+            string htmlString = string.Format("<div  width='200px' height='400px' style='background-color:{0}'>Hi</div>",color);
             return new HtmlString(htmlString);
 
         }

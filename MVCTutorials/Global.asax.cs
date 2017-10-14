@@ -12,7 +12,7 @@ namespace MVCTutorials
     {
         protected void Application_Start()
         {
-           // CustomFilterConfig.LoadFilters(GlobalFilters.Filters);
+            CustomFilterConfig.LoadFilters(GlobalFilters.Filters);
             CustomRouteConfig.LoadRoutes(RouteTable.Routes);
             CustomBundleConfig.BundleMVC(BundleTable.Bundles);
            
